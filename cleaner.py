@@ -1,4 +1,5 @@
 __author__ = 'yury'
+from __future__ import print_function
 import datetime
 import argparse
 import httplib
@@ -26,7 +27,7 @@ idx = [
     if re.search(r"\d{4}\.\d{2}\.\d{2}$", v['index'])]
 idx = [v for v in idx if (datetime.date.today() - v[1]).days > c.days]
 for i in idx:
-    print "removing %s" % i[0]
+    print ("removing %s" % i[0])
     conn.request("DELETE", "/%s/" % i[0])
     res = conn.getresponse()
     res.read()
